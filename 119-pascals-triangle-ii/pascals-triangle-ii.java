@@ -1,0 +1,18 @@
+import java.util.*;
+
+class Solution {
+    public List<Integer> getRow(int rowIndex) {
+        
+        List<Integer> row = new ArrayList<>();
+        long val = 1;  // use long to avoid overflow
+        
+        for (int i = 0; i <= rowIndex; i++) {
+            row.add((int) val);
+            
+            // compute next value using formula
+            val = val * (rowIndex - i) / (i + 1);
+        }
+        
+        return row;
+    }
+}
