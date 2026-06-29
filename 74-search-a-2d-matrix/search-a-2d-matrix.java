@@ -3,9 +3,18 @@ class Solution {
         int r=matrix.length;
         int c=matrix[0].length;
         for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
-                if(matrix[i][j] == target){
+            int l=0;
+            int h=matrix[i].length-1;
+            while(l<=h){
+                int m=l+(h-l)/2;
+                if(matrix[i][m] == target){
                     return true;
+                }
+                else if(matrix[i][m] < target){
+                    l=m+1;
+                }
+                else{
+                    h=m-1;
                 }
             }
         }
